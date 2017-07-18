@@ -26,8 +26,14 @@ def get_auth():
 
 # function to POST request to api to return properties
 def do_search(token):
-    # example search url, see api docs for options
-    url = "http://api.idealista.com/3.5/es/search?center=41.386347,2.169283&operation=rent&propertyType=homes&country=es&maxItems=10&distance=1000"
+    # set criteria - see api docs for options
+    loc = '41.386347,2.169283'
+    op = 'rent'
+    ptype = 'homes'
+    country = 'es'
+    dist = '1000' #in meters from centre
+    # set search url
+    url = "http://api.idealista.com/3.5/es/search?center={0}&operation={1}&propertyType={2}&country={3}&maxItems=50&distance={4}".format(loc,op,ptype,country,dist)
     # set headers to contain token for POST request
     headers = {'Authorization' : 'Bearer ' + token}
     response = requests.post(url,headers=headers)
