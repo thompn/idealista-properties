@@ -14,7 +14,8 @@ def get_auth():
     url = "http://api.idealista.com/oauth/token"
     grant_type = 'client_credentials'
     # set headers for request
-    headers = {'Authorization': key, 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
+    headers = {'Authorization': key, \
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
     # set payload for request
     data = {'grant_type' : grant_type}
     # send POST request to server for oAuth key
